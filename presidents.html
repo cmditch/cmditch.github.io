@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Presidents</title><style>html,head,body { padding:0; margin:0; }
+<html><head><meta charset="UTF-8"><title>Wtf</title><style>html,head,body { padding:0; margin:0; }
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
 (function() {
 'use strict';
@@ -15779,451 +15779,155 @@ var _debois$elm_mdl$Material_Scheme$topWithScheme = F3(
 var _debois$elm_mdl$Material_Scheme$top = function (content) {
 	return A3(_debois$elm_mdl$Material_Scheme$topWithScheme, _debois$elm_mdl$Material_Color$Grey, _debois$elm_mdl$Material_Color$Grey, content);
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$groupBy = F2(
-	function (keyFromElem, list) {
-		var reducer = F2(
-			function (elem, dict) {
-				var key = keyFromElem(elem);
-				var values = A2(
-					_elm_lang$core$Maybe$withDefault,
-					{ctor: '[]'},
-					A2(_elm_lang$core$Dict$get, key, dict));
-				return A3(
-					_elm_lang$core$Dict$insert,
-					key,
-					A2(
-						_elm_lang$core$List$append,
-						values,
-						{
-							ctor: '::',
-							_0: elem,
-							_1: {ctor: '[]'}
-						}),
-					dict);
-			});
-		return A3(_elm_lang$core$List$foldl, reducer, _elm_lang$core$Dict$empty, list);
-	});
-var _cmditch$elm_mdl_sortable_table$Presidents$keepListAscending = function (order) {
-	var _p0 = order;
-	if (_p0.ctor === 'Descending') {
-		return _elm_lang$core$List$reverse;
-	} else {
-		return _elm_lang$core$Basics$identity;
-	}
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$climbedCount = function (_p1) {
-	return _elm_lang$core$List$length(
-		A2(
-			_elm_lang$core$List$filter,
-			function (_) {
-				return _.climbed;
-			},
-			_p1));
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$decorateHeight = function (height) {
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		A2(_elm_lang$core$String$left, 2, height),
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			',',
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				A2(_elm_lang$core$String$right, 3, height),
-				'\'')));
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$rangeSort = F2(
-	function (order, mountains) {
-		return (_elm_lang$core$Native_Utils.eq(order, _debois$elm_mdl$Material_Table$Ascending) ? _elm_lang$core$List$reverse : _elm_lang$core$Basics$identity)(
-			A2(
-				_elm_lang$core$List$concatMap,
-				function (_p2) {
-					return A2(
-						_cmditch$elm_mdl_sortable_table$Presidents$keepListAscending,
-						order,
-						A2(
-							_elm_lang$core$List$sortBy,
-							function (_) {
-								return _.height;
-							},
-							_elm_lang$core$Tuple$second(_p2)));
-				},
-				A2(
-					_elm_lang$core$List$sortBy,
-					_elm_lang$core$Tuple$first,
-					_elm_lang$core$Dict$toList(
-						A2(
-							_cmditch$elm_mdl_sortable_table$Presidents$groupBy,
-							function (_) {
-								return _.range;
-							},
-							mountains)))));
-	});
-var _cmditch$elm_mdl_sortable_table$Presidents$heightField = function (_p3) {
-	return _elm_lang$html$Html$text(
-		_cmditch$elm_mdl_sortable_table$Presidents$decorateHeight(
-			_elm_lang$core$Basics$toString(
-				function (_) {
-					return _.height;
-				}(_p3))));
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$tfoot = function () {
-	var center = A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center');
-	return A2(
-		_debois$elm_mdl$Material_Table$tfoot,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_debois$elm_mdl$Material_Table$td,
-				{
-					ctor: '::',
-					_0: center,
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('elm is fun'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_debois$elm_mdl$Material_Table$td,
-					{
-						ctor: '::',
-						_0: center,
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('elm-mdl is pretty'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_debois$elm_mdl$Material_Table$td,
-						{
-							ctor: '::',
-							_0: center,
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('who uses footers anyways?'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}
-			}
-		});
-}();
-var _cmditch$elm_mdl_sortable_table$Presidents$thHelper = function (header) {
-	var _p4 = header;
-	var name = _p4._0;
-	var maybeOrder = _p4._1;
-	var attrs = _p4._2;
-	var orderStyle = function () {
-		var _p5 = maybeOrder;
-		if (_p5.ctor === 'Nothing') {
-			return {
-				ctor: '::',
-				_0: A2(_debois$elm_mdl$Material_Options$css, 'user-select', 'none'),
-				_1: {ctor: '[]'}
-			};
-		} else {
-			return {
-				ctor: '::',
-				_0: _debois$elm_mdl$Material_Table$sorted(_p5._0),
-				_1: {
-					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Options$css, 'cursor', 'pointer'),
-					_1: {
-						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'user-select', 'none'),
-						_1: {ctor: '[]'}
-					}
-				}
-			};
-		}
-	}();
-	return A2(
-		_debois$elm_mdl$Material_Table$th,
-		A2(_elm_lang$core$Basics_ops['++'], orderStyle, attrs),
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text(name),
-			_1: {ctor: '[]'}
-		});
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$myCustomizations = function () {
-	var customHeads = function (headers) {
-		return A2(
-			_debois$elm_mdl$Material_Table$thead,
-			{ctor: '[]'},
-			A2(_elm_lang$core$List$map, _cmditch$elm_mdl_sortable_table$Presidents$thHelper, headers));
+var _cmditch$elm_mdl_sortable_table$Wtf$init = function (people) {
+	var model = {
+		people: people,
+		tableState: A2(_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$initialSort, 'Year', _debois$elm_mdl$Material_Table$Descending),
+		mdl: _debois$elm_mdl$Material$model
 	};
-	var tableAttrs = {
-		ctor: '::',
-		_0: A2(_debois$elm_mdl$Material_Options$css, 'width', '70%'),
-		_1: {
-			ctor: '::',
-			_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0 auto'),
-			_1: {ctor: '[]'}
-		}
-	};
-	var rowColor = A2(_debois$elm_mdl$Material_Options$css, 'background-color', 'aliceblue');
-	var rowAttrs = function (mnt) {
-		return mnt.climbed ? {
-			ctor: '::',
-			_0: rowColor,
-			_1: {ctor: '[]'}
-		} : {ctor: '[]'};
-	};
-	return _elm_lang$core$Native_Utils.update(
-		_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$defaultCustomizations,
-		{
-			tableAttrs: tableAttrs,
-			rowAttrs: rowAttrs,
-			thead: customHeads,
-			tfoot: _elm_lang$core$Maybe$Just(_cmditch$elm_mdl_sortable_table$Presidents$tfoot)
-		});
-}();
-var _cmditch$elm_mdl_sortable_table$Presidents$header = function (model) {
-	return A2(
-		_debois$elm_mdl$Material_Layout$row,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_debois$elm_mdl$Material_Layout$title,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('elm-mdl | Sortable Table '),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _debois$elm_mdl$Material_Layout$spacer,
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_debois$elm_mdl$Material_Layout$title,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text(
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									_elm_lang$core$Basics$toString(
-										_cmditch$elm_mdl_sortable_table$Presidents$climbedCount(model.mountains)),
-									'  Mountains Climbed')),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}
-			}
-		});
+	return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$Model = F3(
+var _cmditch$elm_mdl_sortable_table$Wtf$Model = F3(
 	function (a, b, c) {
-		return {mountains: a, tableState: b, mdl: c};
+		return {people: a, tableState: b, mdl: c};
 	});
-var _cmditch$elm_mdl_sortable_table$Presidents$Mountain = F6(
-	function (a, b, c, d, e, f) {
-		return {id: a, name: b, height: c, climbed: d, thought: e, range: f};
+var _cmditch$elm_mdl_sortable_table$Wtf$Person = F4(
+	function (a, b, c, d) {
+		return {name: a, year: b, city: c, state: d};
 	});
-var _cmditch$elm_mdl_sortable_table$Presidents$fourteeners = {
+var _cmditch$elm_mdl_sortable_table$Wtf$presidents = {
 	ctor: '::',
-	_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 1, 'Torreys Peak', 14267, false, '', 'Front'),
+	_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'George Washington', 1732, 'Westmoreland County', 'Virginia'),
 	_1: {
 		ctor: '::',
-		_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 2, 'Mt. Evans', 14264, true, 'Crowded', 'Front'),
+		_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'John Adams', 1735, 'Braintree', 'Massachusetts'),
 		_1: {
 			ctor: '::',
-			_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 3, 'Longs Peak', 14255, true, 'Cold', 'Front'),
+			_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Thomas Jefferson', 1743, 'Shadwell', 'Virginia'),
 			_1: {
 				ctor: '::',
-				_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 4, 'Pikes Peak', 14110, false, '', 'Front'),
+				_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'James Madison', 1751, 'Port Conway', 'Virginia'),
 				_1: {
 					ctor: '::',
-					_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 5, 'Mt. Bierstadt', 14060, true, 'Goats', 'Front'),
+					_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'James Monroe', 1758, 'Monroe Hall', 'Virginia'),
 					_1: {
 						ctor: '::',
-						_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 6, 'Quandary Peak', 14265, false, '', 'Tenmile'),
+						_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Andrew Jackson', 1767, 'Waxhaws Region', 'South/North Carolina'),
 						_1: {
 							ctor: '::',
-							_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 7, 'Mt. Lincoln', 14286, true, 'Windy', 'Mosquito'),
+							_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'John Quincy Adams', 1767, 'Braintree', 'Massachusetts'),
 							_1: {
 								ctor: '::',
-								_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 8, 'Mt. Cameron', 14238, false, '', 'Mosquito'),
+								_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'William Henry Harrison', 1773, 'Charles City County', 'Virginia'),
 								_1: {
 									ctor: '::',
-									_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 9, 'Mt. Bross', 14172, true, 'Sunset', 'Mosquito'),
+									_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Martin Van Buren', 1782, 'Kinderhook', 'New York'),
 									_1: {
 										ctor: '::',
-										_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 10, 'Mt. Democrat', 14148, false, '', 'Mosquito'),
+										_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Zachary Taylor', 1784, 'Barboursville', 'Virginia'),
 										_1: {
 											ctor: '::',
-											_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 11, 'Mt. Sherman', 14036, false, '', 'Mosquito'),
+											_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'John Tyler', 1790, 'Charles City County', 'Virginia'),
 											_1: {
 												ctor: '::',
-												_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 12, 'Mt. Elbert', 14433, true, 'Sleet', 'Sawatch'),
+												_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'James Buchanan', 1791, 'Cove Gap', 'Pennsylvania'),
 												_1: {
 													ctor: '::',
-													_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 13, 'Mt. Massive', 14421, false, '', 'Sawatch'),
+													_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'James K. Polk', 1795, 'Pineville', 'North Carolina'),
 													_1: {
 														ctor: '::',
-														_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 14, 'Mt. Harvard', 14420, true, 'Ouch', 'Sawatch'),
+														_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Millard Fillmore', 1800, 'Summerhill', 'New York'),
 														_1: {
 															ctor: '::',
-															_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 15, 'La Plata Peak', 14336, false, '', 'Sawatch'),
+															_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Franklin Pierce', 1804, 'Hillsborough', 'New Hampshire'),
 															_1: {
 																ctor: '::',
-																_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 16, 'Mt. Antero', 14269, false, '', 'Sawatch'),
+																_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Andrew Johnson', 1808, 'Raleigh', 'North Carolina'),
 																_1: {
 																	ctor: '::',
-																	_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 17, 'Mt. Shavano', 14229, true, 'Sore', 'Sawatch'),
+																	_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Abraham Lincoln', 1809, 'Sinking spring', 'Kentucky'),
 																	_1: {
 																		ctor: '::',
-																		_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 18, 'Mt. Belford', 14197, false, '', 'Sawatch'),
+																		_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Ulysses S. Grant', 1822, 'Point Pleasant', 'Ohio'),
 																		_1: {
 																			ctor: '::',
-																			_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 19, 'Mt. Princeton', 14197, false, '', 'Sawatch'),
+																			_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Rutherford B. Hayes', 1822, 'Delaware', 'Ohio'),
 																			_1: {
 																				ctor: '::',
-																				_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 20, 'Grays Peak', 14270, true, 'Stellar', 'Front'),
+																				_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Chester A. Arthur', 1829, 'Fairfield', 'Vermont'),
 																				_1: {
 																					ctor: '::',
-																					_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 21, 'Mt. Yale', 14196, true, 'Beautiful', 'Sawatch'),
+																					_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'James A. Garfield', 1831, 'Moreland Hills', 'Ohio'),
 																					_1: {
 																						ctor: '::',
-																						_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 22, 'Tabeguache Peak', 14155, false, '', 'Sawatch'),
+																						_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Benjamin Harrison', 1833, 'North Bend', 'Ohio'),
 																						_1: {
 																							ctor: '::',
-																							_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 23, 'Mt. Oxford', 14153, false, '', 'Sawatch'),
+																							_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Grover Cleveland', 1837, 'Caldwell', 'New Jersey'),
 																							_1: {
 																								ctor: '::',
-																								_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 24, 'Mt. Columbia', 14073, true, 'Timeless', 'Sawatch'),
+																								_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'William McKinley', 1843, 'Niles', 'Ohio'),
 																								_1: {
 																									ctor: '::',
-																									_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 25, 'Missouri Mountain', 14067, false, '', 'Sawatch'),
+																									_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Woodrow Wilson', 1856, 'Staunton', 'Virginia'),
 																									_1: {
 																										ctor: '::',
-																										_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 26, 'Mt. of the Holy Cross', 14005, false, '', 'Sawatch'),
+																										_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'William Howard Taft', 1857, 'Cincinnati', 'Ohio'),
 																										_1: {
 																											ctor: '::',
-																											_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 27, 'Huron Peak', 14003, false, '', 'Sawatch'),
+																											_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Theodore Roosevelt', 1858, 'New York City', 'New York'),
 																											_1: {
 																												ctor: '::',
-																												_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 28, 'Castle Peak', 14265, false, '', 'Elk'),
+																												_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Warren G. Harding', 1865, 'Blooming Grove', 'Ohio'),
 																												_1: {
 																													ctor: '::',
-																													_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 29, 'Maroon Peak', 14156, true, 'Gorgeous', 'Elk'),
+																													_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Calvin Coolidge', 1872, 'Plymouth', 'Vermont'),
 																													_1: {
 																														ctor: '::',
-																														_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 30, 'Capitol Peak', 14130, false, '', 'Elk'),
+																														_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Herbert Hoover', 1874, 'West Branch', 'Iowa'),
 																														_1: {
 																															ctor: '::',
-																															_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 31, 'Snowmass Mountain', 14092, false, '', 'Elk'),
+																															_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Franklin D. Roosevelt', 1882, 'Hyde Park', 'New York'),
 																															_1: {
 																																ctor: '::',
-																																_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 32, 'Conundrum Peak', 14060, true, 'Wow', 'Elk'),
+																																_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Harry S. Truman', 1884, 'Lamar', 'Missouri'),
 																																_1: {
 																																	ctor: '::',
-																																	_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 33, 'Pyramid Peak', 14018, false, '', 'Elk'),
+																																	_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Dwight D. Eisenhower', 1890, 'Denison', 'Texas'),
 																																	_1: {
 																																		ctor: '::',
-																																		_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 34, 'North Maroon Peak', 14014, true, 'Srsly?', 'Elk'),
+																																		_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Lyndon B. Johnson', 1908, 'Stonewall', 'Texas'),
 																																		_1: {
 																																			ctor: '::',
-																																			_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 35, 'Uncompahgre Peak', 14309, false, '', 'San Juan'),
+																																			_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Ronald Reagan', 1911, 'Tampico', 'Illinois'),
 																																			_1: {
 																																				ctor: '::',
-																																				_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 36, 'Mt. Wilson', 14246, false, '', 'San Juan'),
+																																				_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Richard M. Nixon', 1913, 'Yorba Linda', 'California'),
 																																				_1: {
 																																					ctor: '::',
-																																					_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 37, 'El Diente Peak', 14159, true, 'Brutal', 'San Juan'),
+																																					_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Gerald R. Ford', 1913, 'Omaha', 'Nebraska'),
 																																					_1: {
 																																						ctor: '::',
-																																						_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 38, 'Mt. Sneffels', 14150, false, '', 'San Juan'),
+																																						_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'John F. Kennedy', 1917, 'Brookline', 'Massachusetts'),
 																																						_1: {
 																																							ctor: '::',
-																																							_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 39, 'Mt. Eolus', 14083, true, 'Itchy', 'San Juan'),
+																																							_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'George H. W. Bush', 1924, 'Milton', 'Massachusetts'),
 																																							_1: {
 																																								ctor: '::',
-																																								_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 40, 'Blanca Peak', 14345, true, 'Worthwhile', 'Sangres'),
+																																								_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Jimmy Carter', 1924, 'Plains', 'Georgia'),
 																																								_1: {
 																																									ctor: '::',
-																																									_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 41, 'Windom Peak', 14082, true, 'Marmots', 'San Juan'),
+																																									_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'George W. Bush', 1946, 'New Haven', 'Connecticut'),
 																																									_1: {
 																																										ctor: '::',
-																																										_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 42, 'Sunlight Peak', 14059, false, '', 'San Juan'),
+																																										_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Bill Clinton', 1946, 'Hope', 'Arkansas'),
 																																										_1: {
 																																											ctor: '::',
-																																											_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 43, 'Handies Peak', 14048, false, '', 'San Juan'),
+																																											_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Barack Obama', 1961, 'Honolulu', 'Hawaii'),
 																																											_1: {
 																																												ctor: '::',
-																																												_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 44, 'North Eolus', 14039, true, 'Where?', 'San Juan'),
-																																												_1: {
-																																													ctor: '::',
-																																													_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 45, 'Redcloud Peak', 14034, false, '', 'San Juan'),
-																																													_1: {
-																																														ctor: '::',
-																																														_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 46, 'Wilson Peak', 14017, true, 'Lost', 'San Juan'),
-																																														_1: {
-																																															ctor: '::',
-																																															_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 47, 'Wetterhorn Peak', 14015, false, '', 'San Juan'),
-																																															_1: {
-																																																ctor: '::',
-																																																_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 48, 'San Luis Peak', 14014, false, '', 'San Juan'),
-																																																_1: {
-																																																	ctor: '::',
-																																																	_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 49, 'Sunshine Peak', 14001, false, '', 'San Juan'),
-																																																	_1: {
-																																																		ctor: '::',
-																																																		_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 50, 'Crestone Peak', 14294, false, '', 'Sangres'),
-																																																		_1: {
-																																																			ctor: '::',
-																																																			_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 51, 'Crestone Needle', 14197, false, '', 'Sangres'),
-																																																			_1: {
-																																																				ctor: '::',
-																																																				_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 52, 'Kit Carson Peak', 14165, true, 'Unforgettable', 'Sangres'),
-																																																				_1: {
-																																																					ctor: '::',
-																																																					_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 53, 'Challenger Point', 14081, false, '', 'Sangres'),
-																																																					_1: {
-																																																						ctor: '::',
-																																																						_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 54, 'Humboldt Peak', 14064, false, '', 'Sangres'),
-																																																						_1: {
-																																																							ctor: '::',
-																																																							_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 55, 'Culebra Peak', 14047, true, 'Amazing', 'Sangres'),
-																																																							_1: {
-																																																								ctor: '::',
-																																																								_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 56, 'Mt. Lindsey', 14042, false, '', 'Sangres'),
-																																																								_1: {
-																																																									ctor: '::',
-																																																									_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 57, 'Ellingwood Point', 14042, false, '', 'Sangres'),
-																																																									_1: {
-																																																										ctor: '::',
-																																																										_0: A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 58, 'Little Bear Peak', 14037, true, 'Big', 'Sangres'),
-																																																										_1: {ctor: '[]'}
-																																																									}
-																																																								}
-																																																							}
-																																																						}
-																																																					}
-																																																				}
-																																																			}
-																																																		}
-																																																	}
-																																																}
-																																															}
-																																														}
-																																													}
-																																												}
+																																												_0: A4(_cmditch$elm_mdl_sortable_table$Wtf$Person, 'Donald Trump', 1946, 'New York City', 'New York'),
+																																												_1: {ctor: '[]'}
 																																											}
 																																										}
 																																									}
@@ -16268,152 +15972,34 @@ var _cmditch$elm_mdl_sortable_table$Presidents$fourteeners = {
 		}
 	}
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$init = A2(
-	_elm_lang$core$Platform_Cmd_ops['!'],
-	{
-		mountains: _cmditch$elm_mdl_sortable_table$Presidents$fourteeners,
-		tableState: A2(_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$initialSort, 'Range', _debois$elm_mdl$Material_Table$Descending),
-		mdl: _debois$elm_mdl$Material$model
-	},
-	{ctor: '[]'});
-var _cmditch$elm_mdl_sortable_table$Presidents$emptyMountain = A6(_cmditch$elm_mdl_sortable_table$Presidents$Mountain, 0, '', 0, false, '', '');
-var _cmditch$elm_mdl_sortable_table$Presidents$Mdl = function (a) {
+var _cmditch$elm_mdl_sortable_table$Wtf$Mdl = function (a) {
 	return {ctor: 'Mdl', _0: a};
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$update = F2(
+var _cmditch$elm_mdl_sortable_table$Wtf$update = F2(
 	function (msg, model) {
-		var _p6 = msg;
-		switch (_p6.ctor) {
-			case 'SetTableState':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{tableState: _p6._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'UpdateMountain':
-				var newMountains = A2(
-					_elm_lang$core$List$map,
-					function (mnt) {
-						return _elm_lang$core$Native_Utils.eq(_p6._0, mnt.id) ? _elm_lang$core$Native_Utils.update(
-							mnt,
-							{thought: _p6._1}) : mnt;
-					},
-					model.mountains);
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{mountains: newMountains}),
-					{ctor: '[]'});
-			case 'ToggleMountain':
-				var newMountains = A2(
-					_elm_lang$core$List$map,
-					function (mnt) {
-						return _elm_lang$core$Native_Utils.eq(_p6._0, mnt.id) ? _elm_lang$core$Native_Utils.update(
-							mnt,
-							{climbed: !mnt.climbed}) : mnt;
-					},
-					model.mountains);
-				return A2(
-					_elm_lang$core$Platform_Cmd_ops['!'],
-					_elm_lang$core$Native_Utils.update(
-						model,
-						{mountains: newMountains}),
-					{ctor: '[]'});
-			default:
-				return A3(_debois$elm_mdl$Material$update, _cmditch$elm_mdl_sortable_table$Presidents$Mdl, _p6._0, model);
+		var _p0 = msg;
+		if (_p0.ctor === 'SetTableState') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{tableState: _p0._0}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			return A3(_debois$elm_mdl$Material$update, _cmditch$elm_mdl_sortable_table$Wtf$Mdl, _p0._0, model);
 		}
 	});
-var _cmditch$elm_mdl_sortable_table$Presidents$ToggleMountain = function (a) {
-	return {ctor: 'ToggleMountain', _0: a};
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$climbedToggle = F2(
-	function (model, mountain) {
-		return A5(
-			_debois$elm_mdl$Material_Toggles$switch,
-			_cmditch$elm_mdl_sortable_table$Presidents$Mdl,
-			{
-				ctor: '::',
-				_0: mountain.id,
-				_1: {ctor: '[]'}
-			},
-			model.mdl,
-			{
-				ctor: '::',
-				_0: _debois$elm_mdl$Material_Options$onToggle(
-					_cmditch$elm_mdl_sortable_table$Presidents$ToggleMountain(mountain.id)),
-				_1: {
-					ctor: '::',
-					_0: _debois$elm_mdl$Material_Toggles$ripple,
-					_1: {
-						ctor: '::',
-						_0: _debois$elm_mdl$Material_Toggles$value(mountain.climbed),
-						_1: {ctor: '[]'}
-					}
-				}
-			},
-			{ctor: '[]'});
-	});
-var _cmditch$elm_mdl_sortable_table$Presidents$UpdateMountain = F2(
-	function (a, b) {
-		return {ctor: 'UpdateMountain', _0: a, _1: b};
-	});
-var _cmditch$elm_mdl_sortable_table$Presidents$commentField = F2(
-	function (model, mountain) {
-		return A5(
-			_debois$elm_mdl$Material_Textfield$render,
-			_cmditch$elm_mdl_sortable_table$Presidents$Mdl,
-			{
-				ctor: '::',
-				_0: mountain.id,
-				_1: {ctor: '[]'}
-			},
-			model.mdl,
-			{
-				ctor: '::',
-				_0: _debois$elm_mdl$Material_Options$onInput(
-					_cmditch$elm_mdl_sortable_table$Presidents$UpdateMountain(mountain.id)),
-				_1: {
-					ctor: '::',
-					_0: _debois$elm_mdl$Material_Textfield$value(mountain.thought),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_debois$elm_mdl$Material_Options$when,
-							A2(
-								F2(
-									function (x, y) {
-										return _elm_lang$core$Native_Utils.cmp(x, y) < 0;
-									}),
-								1,
-								_elm_lang$core$List$length(
-									A2(_elm_lang$core$String$split, ' ', mountain.thought))),
-							_debois$elm_mdl$Material_Textfield$error('One word only')),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$when, !mountain.climbed, _debois$elm_mdl$Material_Textfield$disabled),
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			},
-			{ctor: '[]'});
-	});
-var _cmditch$elm_mdl_sortable_table$Presidents$SetTableState = function (a) {
+var _cmditch$elm_mdl_sortable_table$Wtf$SetTableState = function (a) {
 	return {ctor: 'SetTableState', _0: a};
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$config = function (model) {
-	return _cmditch$elm_mdl_sortable_table$Material_Table_Sortable$customConfig(
+var _cmditch$elm_mdl_sortable_table$Wtf$config = function (model) {
+	return _cmditch$elm_mdl_sortable_table$Material_Table_Sortable$config(
 		{
-			toId: function (_p7) {
-				return _elm_lang$core$Basics$toString(
-					function (_) {
-						return _.id;
-					}(_p7));
+			toId: function (_) {
+				return _.name;
 			},
-			toMsg: _cmditch$elm_mdl_sortable_table$Presidents$SetTableState,
+			toMsg: _cmditch$elm_mdl_sortable_table$Wtf$SetTableState,
 			columns: {
 				ctor: '::',
 				_0: A2(
@@ -16424,103 +16010,56 @@ var _cmditch$elm_mdl_sortable_table$Presidents$config = function (model) {
 					}),
 				_1: {
 					ctor: '::',
-					_0: A3(
-						_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$customColumn,
-						'Height',
-						_cmditch$elm_mdl_sortable_table$Presidents$heightField,
-						_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$BasicSort(
-							_elm_lang$core$List$sortBy(
-								function (_) {
-									return _.height;
-								}))),
+					_0: A2(
+						_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$intColumn,
+						'Year',
+						function (_) {
+							return _.year;
+						}),
 					_1: {
 						ctor: '::',
-						_0: A3(
-							_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$customColumn,
-							'Range',
-							function (_p8) {
-								return _elm_lang$html$Html$text(
-									function (_) {
-										return _.range;
-									}(_p8));
-							},
-							_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$CustomSort(_cmditch$elm_mdl_sortable_table$Presidents$rangeSort)),
+						_0: A2(
+							_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$stringColumn,
+							'City',
+							function (_) {
+								return _.city;
+							}),
 						_1: {
 							ctor: '::',
-							_0: A3(
-								_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$customColumn,
-								'One Word Description',
-								_cmditch$elm_mdl_sortable_table$Presidents$commentField(model),
-								_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$None),
-							_1: {
-								ctor: '::',
-								_0: A3(
-									_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$customColumn,
-									'Climbed',
-									_cmditch$elm_mdl_sortable_table$Presidents$climbedToggle(model),
-									_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$None),
-								_1: {ctor: '[]'}
-							}
+							_0: A2(
+								_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$stringColumn,
+								'State',
+								function (_) {
+									return _.state;
+								}),
+							_1: {ctor: '[]'}
 						}
 					}
 				}
-			},
-			customizations: _cmditch$elm_mdl_sortable_table$Presidents$myCustomizations
+			}
 		});
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$mountainTable = function (model) {
-	return A3(
-		_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$view,
-		_cmditch$elm_mdl_sortable_table$Presidents$config(model),
-		model.tableState,
-		model.mountains);
+var _cmditch$elm_mdl_sortable_table$Wtf$view = function (model) {
+	return _debois$elm_mdl$Material_Scheme$top(
+		A3(
+			_cmditch$elm_mdl_sortable_table$Material_Table_Sortable$view,
+			_cmditch$elm_mdl_sortable_table$Wtf$config(model),
+			model.tableState,
+			model.people));
 };
-var _cmditch$elm_mdl_sortable_table$Presidents$view = function (model) {
-	return A3(
-		_debois$elm_mdl$Material_Scheme$topWithScheme,
-		_debois$elm_mdl$Material_Color$Blue,
-		_debois$elm_mdl$Material_Color$Orange,
-		A4(
-			_debois$elm_mdl$Material_Layout$render,
-			_cmditch$elm_mdl_sortable_table$Presidents$Mdl,
-			model.mdl,
-			{
-				ctor: '::',
-				_0: _debois$elm_mdl$Material_Layout$fixedHeader,
-				_1: {ctor: '[]'}
-			},
-			{
-				header: {
-					ctor: '::',
-					_0: _cmditch$elm_mdl_sortable_table$Presidents$header(model),
-					_1: {ctor: '[]'}
-				},
-				drawer: {ctor: '[]'},
-				tabs: {
-					ctor: '_Tuple2',
-					_0: {ctor: '[]'},
-					_1: {ctor: '[]'}
-				},
-				main: {
-					ctor: '::',
-					_0: _cmditch$elm_mdl_sortable_table$Presidents$mountainTable(model),
-					_1: {ctor: '[]'}
-				}
-			}));
-};
-var _cmditch$elm_mdl_sortable_table$Presidents$main = _elm_lang$html$Html$program(
+var _cmditch$elm_mdl_sortable_table$Wtf$main = _elm_lang$html$Html$program(
 	{
-		init: _cmditch$elm_mdl_sortable_table$Presidents$init,
-		update: _cmditch$elm_mdl_sortable_table$Presidents$update,
-		view: _cmditch$elm_mdl_sortable_table$Presidents$view,
-		subscriptions: function (_p9) {
+		init: _cmditch$elm_mdl_sortable_table$Wtf$init(_cmditch$elm_mdl_sortable_table$Wtf$presidents),
+		update: _cmditch$elm_mdl_sortable_table$Wtf$update,
+		view: _cmditch$elm_mdl_sortable_table$Wtf$view,
+		subscriptions: function (_p1) {
 			return _elm_lang$core$Platform_Sub$none;
 		}
 	})();
 var Elm = {};
-Elm['Presidents'] = Elm['Presidents'] || {};
-if (typeof _cmditch$elm_mdl_sortable_table$Presidents$main !== 'undefined') {
-    _cmditch$elm_mdl_sortable_table$Presidents$main(Elm['Presidents'], 'Presidents', undefined);
+Elm['Wtf'] = Elm['Wtf'] || {};
+if (typeof _cmditch$elm_mdl_sortable_table$Wtf$main !== 'undefined') {
+    _cmditch$elm_mdl_sortable_table$Wtf$main(Elm['Wtf'], 'Wtf', undefined);
 }
 
 if (typeof define === "function" && define['amd'])
@@ -16552,4 +16091,4 @@ for (var publicModule in Elm)
 }
 
 }).call(this);
-</script></head><body><script type="text/javascript">Elm.Presidents.fullscreen()</script></body></html>
+</script></head><body><script type="text/javascript">Elm.Wtf.fullscreen()</script></body></html>
