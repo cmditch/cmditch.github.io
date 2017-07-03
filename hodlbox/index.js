@@ -166,7 +166,7 @@ displayError = e => {
 
 logError = e => { if (e != undefined || null) { console.log(e) } }
 
-web3Check = () => { try {web3.eth.coinbase} catch (e) {logError("RPC not found, Allow scripts using shield icon in address bar.")} }
+web3Check = () => { try {web3.eth.coinbase} catch (e) {displayError("RPC not found, Allow scripts using shield icon in address bar.")} }
 
 
 // Contract Object
@@ -186,9 +186,8 @@ window.addEventListener('load', function() {
     console.log("Hodl connected to web3...")
   } else {
     console.log('No web3? You should consider trying MetaMask!')
-    web3Check();
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    window.web3 = new Web3(new Web3.providers.HttpProvider("https://localhost:8545"));
+    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
   setTimeout( () => App.startApp(), 300 );
 });
