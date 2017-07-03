@@ -15,6 +15,7 @@ window.App = {
     AppState.hodlBoxContract = web3.eth.contract(HodlBox.abi);
     // update UI coinbase balance
     this.updateCoinbaseBalance();
+    web3Check();
   },
 
   updateCoinbaseBalance: function() {
