@@ -167,7 +167,7 @@ displayError = e => {
 
 logError = e => { if (e != undefined || null) { console.log(e) } }
 
-web3Check = () => { try {web3.eth.coinbase} catch (e) {displayError("RPC not found, Allow scripts using shield icon in address bar.")} }
+web3Check = () => { try {console.log(web3.eth.coinbase + " coinbase found")} catch (e) {displayError("RPC not found, Allow scripts using shield icon in address bar.")} }
 
 
 // Contract Object
