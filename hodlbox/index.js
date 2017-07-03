@@ -9,13 +9,13 @@
 //  Application functions
 window.App = {
   startApp: function() {
+    web3Check();
     // Set Coinbase address
     AppState.coinbaseAddress = web3.toChecksumAddress(web3.eth.coinbase);
     // Define Contract factory
     AppState.hodlBoxContract = web3.eth.contract(HodlBox.abi);
     // update UI coinbase balance
     this.updateCoinbaseBalance();
-    web3Check();
   },
 
   updateCoinbaseBalance: function() {
