@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <h2>HodlBox</h2>
+        <span id="error"></span>
+        <div id="hodlForm">
+          <br />
+          <input id="ethAmount" type="text" placeholder="Value in Eth"/>
+          <br />
+          <input id="blockCount" type="text" placeholder="Time in Blocks"/>
+          <br  />
+          <div id="contractButton">
+            <button class="button button-primary" onClick="App.submitForm()">Create HodlBox!</button>
+          </div>
+        </div>
+        <br  />
+        <div>My Wallet Balance:</div>
+        <p> <span id="coinbase-balance" title="">0</span> Eth</p>
+        <br />
+        <strong>
+          <p><span id="hodlBoxHeld" title="">0</span> eth hodled</p>
+        </strong>
+        <p id="hodlBoxCountdown"></p>
+      </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
