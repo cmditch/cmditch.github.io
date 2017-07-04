@@ -30,7 +30,7 @@ window.App = {
   formValid: function() {
     amount = AppState.ethAmount
     blocks = AppState.blockCount
-    if ((amount > 0) && (blocks > 0)) {
+    if ((amount > 0.0) && (blocks > 0)) {
       return true;
     } else {
       displayError("Zeros and blank fields are invalid!");
@@ -39,7 +39,7 @@ window.App = {
   },
 
   submitForm: function() {
-    AppState.ethAmount = parseInt($('#ethAmount').val());
+    AppState.ethAmount = parseFloat($('#ethAmount').val());
     AppState.blockCount = parseInt($('#blockCount').val());
     web3Check();
     if (this.formValid()) {
@@ -98,7 +98,7 @@ window.App = {
       logError(e);
       AppState.blocksRemaining = r.toNumber();
       blocksRemaining = AppState.blocksRemaining;
-      if(blocksRemaining === 0) {
+      if (blocksRemaining === 0) {
         $("#hodlBoxCountdown").html(AppState.releaseHodlButton);
         clearInterval(AppState.countdown);
       } else if(blocksRemaining != undefined) {
@@ -120,6 +120,7 @@ window.App = {
         logError(e);
         console.log("Dehodled complete at tx: " + r);
         $("#releaseHodlText").text("");
+        $('#hodlBoxCountdown').append('<div class="loading"></div>');
         $("#releaseHodlButton").text("Waiting for DeHodl...");
         $("#releaseHodlButton").removeClass("button-primary").addClass("disabled-button");
         $("#releaseHodlButton").attr("disabled", "disabled");
@@ -133,6 +134,8 @@ window.App = {
     releaseEvent = AppState.hodlBoxDeployed.HodlReleased({_isReleased: true});
     releaseEvent.watch( (e,r) => {
       console.log("DeHodled!")
+      $('.loading').removeClass('loading');
+      $('#hodling').html('');
       $("#releaseHodlButton").text("DeHodl Complete!!");
       $("#hodlForm").removeClass("hodlHard").addClass("happyHodor");
       self.updateCoinbaseBalance();
