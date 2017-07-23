@@ -39,8 +39,8 @@ window.App = {
   },
 
   submitForm: function() {
-    AppState.ethAmount = parseFloat($('#ethAmount').val());
-    AppState.blockCount = parseInt($('#blockCount').val());
+    AppState.ethAmount = parseFloat( $('#ethAmount').val() );
+    AppState.blockCount = parseInt( $('#blockCount').val() );
     web3Check();
     if (this.formValid()) {
       this.disableForm();
