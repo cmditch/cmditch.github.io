@@ -1,0 +1,50 @@
+<html>
+
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function clearVendor() {
+  document.cookie = "vendor=";
+  document.getElementById("main").innerHTML = chooseAVendorHtml;
+}
+
+function setVendor(type) {
+    document.cookie = "vendor=" + type;
+    document.getElementById("main").innerHTML = seeVendorHtml(type);
+}
+
+function seeVendorHtml(type) {
+    return "<p>Looks like you serve " + type + "!</p><br><button onclick='clearVendor()'>Clear Vendor</button>";
+}
+
+chooseAVendorHtml = '<p>Choose a vendor</P><br><button onclick="setVendor(\'pizzas\')">Pizza</button><br><button onclick="setVendor(\'tacos\')">Tacos</button>'
+
+</script>
+
+<head></head>
+
+<body>
+  <div id='main'>Loading...</div>
+</body>
+
+<script>
+    if (getCookie("vendor") == "") {
+        document.getElementById("main").innerHTML = chooseAVendorHtml;
+    } else {
+        document.getElementById("main").innerHTML = seeVendorHtml(getCookie("vendor"));
+    }
+</script>
+<html>
